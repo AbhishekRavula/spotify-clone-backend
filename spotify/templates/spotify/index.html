@@ -1,0 +1,213 @@
+<!--<!DOCTYPE html>-->
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.2s;
+  width: 15%;
+  top:10%;
+  background-color:rgb(40, 40, 40);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+<!--.container {-->
+<!--    padding: 2px 16px;-->
+<!--}-->
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    overflow:hidden;
+}
+
+</style>
+<body>
+    <div class="row">
+        <div class="col-2" style="background-color:black">
+            <span>
+                <img src="{% static 'spotify/logo.jpg' %}" alt="logo" style="width:150px; margin-top:20px; margin-left:20px">
+            </span>
+            <nav class="ml-4" style="margin-top:20px; color:white">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Search</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link">Your Library</a>
+                    </li>
+                     <li class="nav-item">
+                         <a class="nav-link">Create Playlist</a>
+                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Liked Songs</a>
+                     </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>
+
+<!--<body>-->
+<!--    <div class="row">-->
+<!--        <div class="col-2" style="background-color:black">-->
+<!--            <span>-->
+<!--                <img src="{% static 'spotify/logo.jpg' %}" alt="logo" style="width:150px; margin-top:20px; margin-left:20px">-->
+<!--            </span>-->
+<!--            <nav class="ml-4" style="margin-top:20px; color:white">-->
+<!--                <ul class="navbar-nav">-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link">Home</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link">Search</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                       <a class="nav-link">Your Library</a>-->
+<!--                    </li>-->
+<!--                     <li class="nav-item">-->
+<!--                         <a class="nav-link">Create Playlist</a>-->
+<!--                     </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link">Liked Songs</a>-->
+<!--                     </li>-->
+<!--                </ul>-->
+<!--            </nav>-->
+<!--        </div>-->
+<!--        <div class="col-10" style="background-color:rgb(14, 14, 14)">-->
+<!--            <form action="logout_user" style="margin-right:20px; margin-top:20px; float:right;" method="post">-->
+<!--                {% csrf_token %}-->
+<!--                <input style="background-color:white;" type="submit" value="logout">-->
+<!--            </form>-->
+<!--            <section class="scrolling-wrapper">-->
+<!--                {% for playlist in playlists %}-->
+<!--                <div class="card mr-3 mb-3" style="display:inline-block">-->
+<!--                    <img src="{{ playlist.img}}" style="width:100%; height:auto; margin-left:0px; margin-top:10px">-->
+<!--                    <div class="text-white mt-2 float:left">-->
+<!--                        <h5><b>{{ playlist.name }}</b></h5>-->
+<!--                        <p class="text-muted font-weight-normal" style="white-space:pre-line">{{ playlist.top_artist }}</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+<!--            </section>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</body>-->
+
+<!--<!DOCTYPE html>-->
+<!--{% load static %}-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+<!--<style>-->
+<!--body {-->
+<!--    height: 100%;-->
+<!--    overflow: auto;-->
+<!--}-->
+<!--.body-color {-->
+<!--    background-color:rgb(14, 14, 14);-->
+<!--}-->
+<!--.card {-->
+<!--  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);-->
+<!--  transition: 0.2s;-->
+<!--  width: 15%;-->
+<!--  top:10%;-->
+<!--  background-color:rgb(40, 40, 40);-->
+<!--}-->
+
+<!--.card:hover {-->
+<!--  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);-->
+<!--}-->
+<!--.col-2{-->
+<!--    min-height:100%;-->
+<!--}-->
+<!--&lt;!&ndash;.container {&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 2px 16px;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--</style>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;  <span>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h1>Welcome {{ request.user }}</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    <form action="logout_user" style="right:20px; top:20px;" method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;      {% csrf_token %}&ndash;&gt;-->
+<!--&lt;!&ndash;        <p style="text:white">ljlihgyft</p>&ndash;&gt;-->
+<!--&lt;!&ndash;      <input style="background-color:white" type="submit" value="logout">&ndash;&gt;-->
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+<!--&lt;!&ndash;  </span>&ndash;&gt;-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col-2" style="display:inline-block; background-color:black;">-->
+<!--                 <span>-->
+<!--                    <img src="{% static 'spotify/logo.jpg' %}" alt="logo" style="width:150px; margin-top:20px; margin-left:20px">-->
+<!--                 </span>-->
+<!--                <nav style="margin-top:20px; color:white">-->
+<!--                    <ul class="navbar-nav">-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link">Home</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link">Search</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                           <a class="nav-link">Your Library</a>-->
+<!--                        </li>-->
+<!--                         <li class="nav-item">-->
+<!--                             <a class="nav-link">Create Playlist</a>-->
+<!--                         </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link">Liked Songs</a>-->
+<!--                         </li>-->
+<!--                    </ul>-->
+<!--                </nav>-->
+<!--            </div>-->
+<!--            <div class="col-10 body-color">-->
+<!--                <form action="logout_user" style="margin-right:20px; margin-top:20px; float:right" method="post">-->
+<!--                    {% csrf_token %}-->
+<!--                    <input style="background-color:white;" type="submit" value="logout">-->
+<!--                </form>-->
+<!--                {% for playlist in playlists %}-->
+<!--                <div class="card d-inline-block mr-3 mb-3">-->
+<!--                    <img src="{{ playlist.img}}" style="width:100%; padding-top:10px; padding-left-5px">-->
+<!--                    <div class="container text-white ">-->
+<!--                        <h4 ><b>{{ playlist.name }}</b></h4>-->
+<!--                        <p class="text-muted font-weight-normal">{{ playlist.top_artist }}</p>-->
+<!--        &lt;!&ndash;      <audio controls>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <source src="{{ song.music_path }}" type="audio/mpeg">&ndash;&gt;-->
+<!--        &lt;!&ndash;        Your browser does not support the audio tag.&ndash;&gt;-->
+<!--        &lt;!&ndash;      </audio>&ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<div class="slider-inner">-->
+<!--                    {% for playlist in playlists %}-->
+<!--                    <div class="card container d-inline-block mr-3 mb-3">-->
+<!--                        <img src="{{ playlist.img}}" style="width:100%; height:auto; margin-left:0px; margin-top:10px">-->
+<!--                        <div class="text-white mt-2 float:left">-->
+<!--                            <h5 ><b>{{ playlist.name }}</b></h5>-->
+<!--                            <p class="text-muted font-weight-normal" style="white-space:pre-line">{{ playlist.top_artist }}</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    {% endfor %}-->
+<!--                </div>-->

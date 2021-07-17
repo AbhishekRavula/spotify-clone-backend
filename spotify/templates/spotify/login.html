@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpotifyClone</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><h2>Welcome to Spotify</h2></li>
+        </ul>
+    </nav>
+    <div>
+        <span>
+            <button onclick="login()" >login</button>
+            <button onclick="signup()" >sign up</button>
+        </span>
+    </div>
+    <form style="display:block" id="login" action="authenticate" method="post">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username"><br>
+        <label>password:</label>
+        <input type="password" name="password"><br>
+        <input type="submit" value="Login"/>
+    </form>
+    <form style="display:none" id="signup" action="register" method="post">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username"><br>
+        <label>email:</label>
+        <input type="email" name="email"><br>
+        <label>password:</label>
+        <input type="password" name="password"><br>
+        <label>Re-password:</label>
+        <input type="password" name="re_password"><br>
+        <input type="submit" value="Submit"/>
+    </form>
+    <div>
+        {% for message in messages %}
+            <script>
+                alert({{ message }});
+            </script>
+        {% endfor %}
+    </div>
+    <script>
+        function login() {
+             document.getElementById("login").style.display = "block";
+             document.getElementById("signup").style.display = "none";
+        }
+        function signup() {
+             document.getElementById("signup").style.display = "block";
+             document.getElementById("login").style.display = "none";
+
+        }
+    </script>
+</body>
+</html>

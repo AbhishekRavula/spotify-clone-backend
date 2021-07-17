@@ -1,0 +1,17 @@
+{% extends 'spotify/base_layout.html'%}
+{% block content %}
+    <section class="scrolling-wrapper">
+        <h3 class="text-white">Playlist's</h3>
+            {% for playlist in playlists %}
+                <div class="card mr-3 mb-3" style="display:inline-block; cursor:pointer">
+                    <img src="{{ playlist.image }}" width="200" height="200">
+                    <div class="text-black mt-2 float:left">
+                        <a href="/playlist/{{ playlist.id }}" style="text-decoration:none">
+                            <h5><b>{{ playlist.name }}</b></h5>
+                        </a>
+                        <p class="text-muted font-weight-normal" style="white-space:pre-line">{{ playlist.top_artist }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+    </section>
+{% endblock %}

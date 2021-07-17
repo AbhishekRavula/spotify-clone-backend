@@ -1,0 +1,26 @@
+{% extends 'spotify/base_layout.html'%}
+{% block content %}
+    <img src="{{ playlists.img }}" width="232" height="232" style="margin-top:100px; margin-left:20px; position:absolute">
+    <div style="color:white; display:flex; flex-flow:column; margin-left:26%; margin-top:17%">
+        <small><b>PLAYLIST</b></small>
+        <h1 style="color:white">{{ playlists.name}}</h1>
+        <p>{{ playlists.top_artist }}</p>
+    </div>
+    <table style="color:white; margin-top:100px; margin-left:80px">
+        <tr>
+            <th>
+                Title
+            </th>
+        </tr>
+        {% for song in songs %}
+        <tr>
+            <td>
+                {{ song.name }}
+                <audio controls>
+                    <source src="{{ song.music_path }}" type="audio/mp3">
+                </audio>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
