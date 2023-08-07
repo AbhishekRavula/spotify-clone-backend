@@ -71,7 +71,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [TokenAuthentication]
 
     def create(self, request, *args, **kwargs):
@@ -86,7 +85,11 @@ class UserViewSet(viewsets.ModelViewSet):
             'token': token.key,
             'username': user.username
         })
-
+    
+    def get_permissions(self, *args, **kwargs):
+        if self.action == 'create':
+            return [permissions.AllowAny()]
+        return [permissions.IsAuthenticated()]
 
 # Serializers define the API representation.
 class MusicSerializer(serializers.HyperlinkedModelSerializer):
